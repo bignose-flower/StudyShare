@@ -25,8 +25,7 @@
     
       %ul.navbar-nav
         %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold
-          %a.nav-link.text-white{ href: "#" }
-            サインイン
+          = link_to "サインイン", new_user_registration_path, { class: "av-link text-white"}
         %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold
           %a.nav-link.text-white{ href: "#" }
             ログアウト
