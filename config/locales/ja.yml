@@ -208,7 +208,7 @@ ja:
   enum:
       job:
         job_select:
-          default: "職業を選んでください"
+          default: "職業を選択してください"
           junior: "中学生"
           high: "高校生"
           univ: "大学生"
