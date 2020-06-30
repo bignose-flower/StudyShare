@@ -16,7 +16,7 @@ class User < ApplicationRecord
   end
 
   enum job_select: {
-      default: "-----",
+      default: "職業を選んでください",
       junior: "中学生",
       high: "高校生",
       univ: "大学生",

@@ -2,26 +2,31 @@
   .AccountPage
     .AccountPage__title
       %h2 Create Account
-      - if ( @user.errors.any? )
-        - @user.errors.full_messages.each do |message|
-          %p= message
     .AccountPage__form
-      = form_with model: @user, url: user_registration_path do |f|
-        = devise_error_messages!
+      = form_with model: @user, url: user_registration_path, local: true do |f|
         .FormField
           .fas.fa-user
           = f.text_field :name, autofocus: true, placeholder: "お名前"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :name}
         .FormField
           .fas.fa-birthday-cake
           = f.date_field :birth_date, placeholder: "誕生日"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :birth_date}
+        .FormField
+          .fas.fa-graduation-cap
+          = f.select :job, User.job_selects_i18n.keys.map{|k| [I18n.t("enum.job.job_select.#{k}"), k]}
+        = render "/devise/shared/error_messages", {model: @user, attribute: :job}
         .FormField
           .fas.fa-envelope
           = f.email_field :email, placeholder: "メールアドレス"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :email}
         .FormField
           .fas.fa-key
           = f.password_field :password, autocomplete: "off", placeholder: "password(英数字８文字以上)"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :password}
         .FormField
           .fas.fa-key
           = f.password_field :password_confirmation, autocomplete: "off", placeholder: "確認用"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :password_confirmation}
         = f.submit "登録", class: 'Button UserButton'
         

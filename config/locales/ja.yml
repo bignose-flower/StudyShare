@@ -205,3 +205,11 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  enum:
+      job:
+        job_select:
+          default: "職業を選んでください"
+          junior: "中学生"
+          high: "高校生"
+          univ: "大学生"
+          others: "その他"

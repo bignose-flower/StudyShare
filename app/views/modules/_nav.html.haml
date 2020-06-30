@@ -12,7 +12,14 @@
         ノート
 
   %ul.navbar-nav
-    %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold
-      = link_to "サインイン", new_user_registration_path, { class: "nav-link text-white"}
-    %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
+    - if (user_signed_in?)
+      %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
+    
+    - else
+      %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
+        = link_to "サインイン", new_user_session_path, { class: "nav-link text-white"}
+
+      %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
+        = link_to "新規登録", new_user_registration_path, { class: "nav-link text-white"}
+   

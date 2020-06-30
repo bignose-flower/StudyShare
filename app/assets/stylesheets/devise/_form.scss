@@ -1,3 +1,5 @@
+//サインアップページのSCSS
+
 .Content{
   width: 100vw;
   height: 100vh;
@@ -5,13 +7,13 @@
 }
 .AccountPage{
   width: 450px;
-  height: 600px;
+  display: inline-block;
   font-family: 'DM Mono', monospace;
   background-color: #ffd06b;
   box-shadow: 0 2px 10px 2px rgba(0,0,0, 0.6);
   padding: 20px 20px;
   margin: 0 auto;
-  transform: translateY(20%);
+  transform: translateY(10%);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -43,7 +45,7 @@
   }
 
 
-  & input{
+  & input, select{
     width: 300px;
     padding: 10px;
     border: none;
@@ -72,6 +74,7 @@
 }
 
 
+//ログインページのSCSS
 .LoginPage{
   width: 450px;
   height: 350px;
