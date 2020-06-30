@@ -1,0 +1,16 @@
+.LoginPage
+  .AccountPage__title
+    %h2 Log in
+    - if ( @user.errors.any? )
+      - @user.errors.full_messages.each do |message|
+        %p= message
+  .AccountPage__form
+    = form_with model: @user, url: root_path do |f|
+      = devise_error_messages!
+      .FormField
+        .fas.fa-envelope
+        = f.email_field :email, placeholder: "メールアドレス"
+      .FormField
+        .fas.fa-key
+        = f.password_field :password, autocomplete: "off", placeholder: "password"
+      = f.submit "Log in", class: 'Button UserButton'

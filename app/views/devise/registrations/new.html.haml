@@ -1,15 +1,27 @@
-.AccountPage
-  .AccountPage__title
-  .AccountPage__form
-    = form_with model: @user, url: user_registration_path do |f|
-      = devise_error_messages!
-      .FormField
-        .FormField__label--normal
-          = f.label :name
-        .FormField__label--normal
-          = f.text_field :name, autofocus: true
-      .FormField
-        .FormField__label--normal
-          = f.label :birth_date
-        .FormField__label--normal
-          = f.date_field :birth_date
+.Content
+  .AccountPage
+    .AccountPage__title
+      %h2 Create Account
+      - if ( @user.errors.any? )
+        - @user.errors.full_messages.each do |message|
+          %p= message
+    .AccountPage__form
+      = form_with model: @user, url: user_registration_path do |f|
+        = devise_error_messages!
+        .FormField
+          .fas.fa-user
+          = f.text_field :name, autofocus: true, placeholder: "お名前"
+        .FormField
+          .fas.fa-birthday-cake
+          = f.date_field :birth_date, placeholder: "誕生日"
+        .FormField
+          .fas.fa-envelope
+          = f.email_field :email, placeholder: "メールアドレス"
+        .FormField
+          .fas.fa-key
+          = f.password_field :password, autocomplete: "off", placeholder: "password(英数字８文字以上)"
+        .FormField
+          .fas.fa-key
+          = f.password_field :password_confirmation, autocomplete: "off", placeholder: "確認用"
+        = f.submit "登録", class: 'Button UserButton'
+        

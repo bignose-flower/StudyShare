@@ -2,7 +2,11 @@
   .TitleBox
     %p.TitleBox__maintext StudyShare
     %p.TitleBox__subtext すぐ答えてに応える
-  .Button
-    %button.btn.btn-info.Button__signin 新規作成
+  .AccountButton
+    = link_to "新規登録", new_user_registration_path, { class: "btn btn-info Button__signin"}
+      
     
-    %button.btn.btn-success.Button__login ログイン
+    = link_to "ログイン", new_user_session_path, { class: "btn btn-info AccountButton__login"}
+
+    
+    

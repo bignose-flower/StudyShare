@@ -14,4 +14,12 @@ class User < ApplicationRecord
       errors.add(:birth_date, "15際以下は登録できません。")
     end
   end
+
+  enum job_select: {
+      default: "-----",
+      junior: "中学生",
+      high: "高校生",
+      univ: "大学生",
+      others: "その他"
+  }, _prefix: true
 end
