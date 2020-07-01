@@ -1,0 +1,23 @@
+.Content
+  .Content__wrapper
+    .Title
+      %h2 Account Information
+    .ShowAccount
+      .ShowAccount__leftfield
+        .InfoField
+          .fas.fa-user
+          %p.InfoField__list= @user.name
+        .InfoField
+          .fas.fa-envelope
+          %p.InfoField__list= @user.email
+        .InfoField
+          .fas.fa-graduation-cap
+          %p.InfoField__list= @user.job
+        .InfoField
+      .ShowAccount__rightfield
+        - if @user.image?
+          .ImageInfo= @user.image
+        - else
+          .ImageInfo
+            = image_tag "/images/default.jpg"
+        = link_to "編集をする", edit_user_registration_path, { class: "Button"}

@@ -1,1 +1,10 @@
-編集画面
+.Content
+  .EditPage
+    .EditPage__title
+      %h2 Edit Account
+    .EditPage__form
+      = form_with model: @user, url: user_registration_path, local: true do |f|
+        .EditField
+          .fas.fa-user
+            = f.text_field :name, autofocus: true, value: "#{current_user.name}"
+          
