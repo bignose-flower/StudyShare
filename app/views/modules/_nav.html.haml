@@ -16,6 +16,8 @@
       %li.nav-item.active.ml-3.font-weight-bold.nav-link.text-white
         = "#{current_user.name}さん,こんにちは！"
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
+        = link_to "ユーザー編集", edit_user_registration_path, class: "nav-link text-white"
+      %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
     
     - else

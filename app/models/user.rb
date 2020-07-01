@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, uniqueness: true
   validates :birth_date, presence: true
@@ -22,4 +22,6 @@ class User < ApplicationRecord
       univ: "大学生",
       others: "その他"
   }, _prefix: true
+
+  mount_uploader :image, ImagesUploader
 end

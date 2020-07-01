@@ -61,5 +61,6 @@ gem "font-awesome-sass"
 gem 'bootstrap', '~> 4.1.1'
 gem 'devise'
 gem 'enum_help'
-
+gem 'carrierwave'
+gem 'mini_magick'
 

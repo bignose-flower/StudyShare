@@ -1,10 +1,11 @@
 .LoginPage
   .AccountPage__title
     %h2 Log in
-    = render "devise/shared/error_messages", { resource: @user }
   .AccountPage__form
+    -if alert
+      #error_explanation
+        .error-box__message= alert
     = form_with model: @user, url: user_session_path, local: true do |f|
-      = devise_error_messages!
       .FormField
         .fas.fa-envelope
         = f.email_field :email, placeholder: "メールアドレス"
@@ -12,4 +13,3 @@
         .fas.fa-key
         = f.password_field :password, autocomplete: "off", placeholder: "password"
       = f.submit "Log in", class: 'Button UserButton'
-  = render "devise/shared/links"
