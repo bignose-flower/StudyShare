@@ -16,11 +16,11 @@ class User < ApplicationRecord
   end
 
   enum job_select: {
-      default: "職業を選んでください",
-      junior: "中学生",
-      high: "高校生",
-      univ: "大学生",
-      others: "その他"
+      "職業を選んでください": "職業を選んでください",
+      "中学生": "中学生",
+      "高校生": "高校生",
+      "大学生": "大学生",
+      "その他": "その他"
   }, _prefix: true
 
   mount_uploader :image, ImagesUploader

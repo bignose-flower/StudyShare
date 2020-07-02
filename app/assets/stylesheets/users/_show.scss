@@ -27,11 +27,14 @@
   justify-content: space-around;
 
   &__leftfield{
-    
   }
 
-  &__rigthfield{
+  &__rightfield{
+    text-align: center;
 
+    & label{
+      display: block;
+    }
   }
 }
 
@@ -50,22 +53,38 @@
   &__list{
     width: 300px;
     padding: 11px 10px;
-    background-color: transparent;
+    opacity: 0.6;
+    border: none;
     border-bottom: 1px solid rgba(71, 69, 69, 0.411);
     margin-bottom: 50px;
-    text-align: center;
+  }
+
+  & input{
+    outline: none;
+  }
+
+  & select{
+    outline: none;
   }
   
 }
 
 .ImageInfo{
-  text-align: center;
   margin-bottom: 40px;
 
   & img{
-    width: 250px;
-    height: 250px;
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
-    
+    border: 5px dashed #f7be16;
   }
+
+  &__image{
+    display: none;
+  }
+}
+
+.Button.block{
+  display: inline-block;
+  outline: none;
 }

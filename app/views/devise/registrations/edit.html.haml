@@ -1,10 +1,28 @@
 .Content
-  .EditPage
-    .EditPage__title
+  .Content__wrapper
+    .Title
       %h2 Edit Account
-    .EditPage__form
-      = form_with model: @user, url: user_registration_path, local: true do |f|
-        .EditField
+    = form_with model: @user, url: user_registration_path, method: :patch,   local: true, class: "ShowAccount" do |f|
+      .ShowAccount__leftfield
+        .InfoField
           .fas.fa-user
-            = f.text_field :name, autofocus: true, value: "#{current_user.name}"
-          
+          = f.text_field :name, autofocus: true, class: 'InfoField__list', value: current_user.name
+        = render "/devise/shared/error_messages", {model: @user, attribute: :name}
+        .InfoField
+          .fas.fa-envelope
+          = f.email_field :email, value: current_user.email, class: 'InfoField__list'
+        = render "/devise/shared/error_messages", {model: @user, attribute: :email}
+        .InfoField
+          .fas.fa-graduation-cap
+          = f.select :job, options_for_select(User.job_selects, selected: current_user.job), {}, class: 'InfoField__list'
+      .ShowAccount__rightfield
+        - if @user.image?
+          = f.label :image, class: 'ImageInfo' do
+            = image_tag @user.image.url
+            = f.file_field :image, class: 'ImageInfo__image'
+          = f.file_field :image
+        - else
+          = f.label :image, class: 'ImageInfo' do
+            = image_tag "/images/default.jpg"
+            = f.file_field :image, class: 'ImageInfo__image'
+        = f.submit "変更する", class: "Button block"
