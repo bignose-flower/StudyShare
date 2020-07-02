@@ -35,6 +35,10 @@
     & label{
       display: block;
     }
+
+    &_hidden{
+     display: none;
+    }
   }
 }
 
@@ -66,20 +70,19 @@
   & select{
     outline: none;
   }
-  
 }
 
 .ImageInfo{
   margin-bottom: 40px;
 
-  & img{
+  &__image{
     width: 260px;
     height: 260px;
     border-radius: 50%;
     border: 5px dashed #f7be16;
   }
 
-  &__image{
+  &__upload{
     display: none;
   }
 }

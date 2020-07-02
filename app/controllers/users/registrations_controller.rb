@@ -15,19 +15,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  def edit
-    super
-  end
+  # def edit
+  #   super
+  # end
 
   # PUT /resource
-  def update
-    super
-  end
+  # def update
+  #   super
+  # end
 
   # DELETE /resource
-  def destroy
-    super
-  end
+  # def destroy
+  #   super
+  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -55,7 +55,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    user_success_path
+    user_thanks_path
+  end
+
+  def after_update_path_for(resource)
+    edit_user_registration_path
   end
 
   # The path used after sign up for inactive accounts.
