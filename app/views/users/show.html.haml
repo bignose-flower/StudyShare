@@ -1,0 +1,24 @@
+.Content
+  .Content__wrapper
+    .Title
+      %h2 Account Information
+    .ShowAccount
+      .ShowAccount__leftfield
+        .InfoField
+          .fas.fa-user
+          %p.InfoField__list= current_user.name
+        .InfoField
+          .fas.fa-envelope
+          %p.InfoField__list= current_user.email
+        .InfoField
+          .fas.fa-graduation-cap
+          %p.InfoField__list= current_user.job
+        .InfoField
+      .ShowAccount__rightfield
+        - if current_user.image?
+          .ImageInfo
+            = image_tag current_user.image.url, class: "ImageInfo__image"
+        - else
+          .ImageInfo
+            = image_tag "/images/default.jpg", class: "ImageInfo__image"
+        = link_to "編集をする", edit_user_path(current_user.id), { class: "Button"}

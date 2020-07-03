@@ -1,35 +1,17 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    /
+    %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0", name: "viewport"}
     %title StudyShare
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application'
     %link{href:"https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap", rel:"stylesheet"}
     %link{href: "https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Kosugi+Maru&display=swap",rel:"stylesheet"}
-  %body
-    %nav.navbar.navbar-expand-lg.navbar-light.d-flex.navcolor.fixed-top
-      %a.navbar-brand.text-decoration-none.text-white{ href: "#" } 
-        = icon('fas', 'school')
-        &nbsp;StudyShare
-      
-      %ul.navbar-nav.mr-auto
-        %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold.nav-font
-          %a.nav-link.text-white{ href: "#" }
-            質問する
-        %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold
-          %a.nav-link.text-white{ href: "#" }
-            ノート
-    
-      %ul.navbar-nav
-        %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold
-          %a.nav-link.text-white{ href: "#" }
-            サインイン
-        %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold
-          %a.nav-link.text-white{ href: "#" }
-            ログアウト
-          
+  %body   
     = yield
 

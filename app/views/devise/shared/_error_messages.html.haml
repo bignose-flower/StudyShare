@@ -1,0 +1,6 @@
+- if resource.errors.any?
+  - unless resource.valid?
+    #error_explanation
+      %div.error-box
+        - resource.errors.full_messages_for(attribute).each do |message|
+          %div.error-box__message= message

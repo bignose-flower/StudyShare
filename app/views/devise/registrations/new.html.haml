@@ -1,0 +1,32 @@
+.Content
+  .AccountPage
+    .AccountPage__title
+      %h2 Create Account
+    .AccountPage__form
+      = form_with model: @user, url: user_registration_path, local: true do |f|
+        .FormField
+          .fas.fa-user
+          = f.text_field :name, autofocus: true, placeholder: "お名前"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :name}
+        .FormField
+          .fas.fa-birthday-cake
+          = f.date_field :birth_date, placeholder: "誕生日"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :birth_date}
+        .FormField
+          .fas.fa-graduation-cap
+          = f.select :job, options_for_select(User.job_selects), {}
+        = render "/devise/shared/error_messages", {model: @user, attribute: :job}
+        .FormField
+          .fas.fa-envelope
+          = f.email_field :email, placeholder: "メールアドレス"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :email}
+        .FormField
+          .fas.fa-key
+          = f.password_field :password, autocomplete: "off", placeholder: "password(英数字８文字以上)"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :password}
+        .FormField
+          .fas.fa-key
+          = f.password_field :password_confirmation, autocomplete: "off", placeholder: "確認用"
+        = render "/devise/shared/error_messages", {model: @user, attribute: :password_confirmation}
+        = f.submit "登録", class: 'Button UserButton'
+        

@@ -1,0 +1,12 @@
+#error_explanation{
+  & p{
+    font-size: 15px;
+    color: #e74d95;
+  }
+
+  & .error-box__message{
+    font-size: 12px;
+    color: #e74d95;
+    list-style: disc;
+  }
+}

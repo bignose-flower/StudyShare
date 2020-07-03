@@ -1,6 +1,9 @@
-@import 'modules/reset';
+@import 'reset';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import "bootstrap"; 
 @import "modules/nav";
 @import "modules/questions";
+@import "users/form";
+@import "users/error";
+@import "users/show"
