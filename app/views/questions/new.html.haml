@@ -1,0 +1,24 @@
+.Content{style: 'background-color: #cdc2b8;'}
+  .QuestionFormBox
+    = form_with model: @question, url: user_questions_path, local: true, class: "QuestionForm" do |f|
+      .QuestionTitle
+        .QuestionTitle__label
+          = f.label 'タイトル'
+          %span (必須)
+        = f.text_field :title, autofocus: true
+      .QuestionText
+        .QuestionText__label
+          = f.label '本文'
+          %span (必須)
+        .QuestionText__modifier
+          %span= icon('fas', 'highlighter')
+          %span= icon('fas', 'bold')
+          %span= icon('fas', 'link')
+        = f.text_area :question, rows: 15
+      .QuestionCategory
+        .QuestionCategory__label
+          = f.label 'カテゴリー'
+          %span (任意)
+        .ChoiceBox
+          = f.select :category, @category_parent_array, {}
+        = f.submit "質問を投稿する", class: "QuestionSubmit"

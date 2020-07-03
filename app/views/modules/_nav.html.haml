@@ -5,8 +5,7 @@
   
   %ul.navbar-nav.mr-auto
     %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold.nav-font
-      %a.nav-link.text-white{ href: "#" }
-        質問する
+      = link_to "質問する", new_user_question_path(current_user.id), class: "nav-link text-white"
     %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold
       %a.nav-link.text-white{ href: "#" }
         ノート
