@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validate :job_not_default
 
   def job_not_default
-    if job.present? && (job == "default")
+    if job.present? && (job == "職業を選んでください")
       errors.add(:job, "を入力してください")
     end
   end

@@ -4,12 +4,15 @@
       %h2 Edit Account
     = form_with model: @user, url: user_path(current_user.id), method: :patch, local: true, class: "ShowAccount" do |f|
       .ShowAccount__leftfield
+        = render "/devise/shared/error_messages", {resource: @user, attribute: :name}
         .InfoField
           .fas.fa-user
           = f.text_field :name, autofocus: true, class: 'InfoField__list', value: current_user.name
+        = render "/devise/shared/error_messages", {resource: @user, attribute: :email}
         .InfoField
           .fas.fa-envelope
           = f.email_field :email, value: current_user.email, class: 'InfoField__list'
+        = render "/devise/shared/error_messages", {resource: @user, attribute: :job}
         .InfoField
           .fas.fa-graduation-cap
           = f.select :job, options_for_select(User.job_selects, selected: current_user.job), {}, class: 'InfoField__list'
