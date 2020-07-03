@@ -16,6 +16,20 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  
+  animation: dropdown 1s ease 0s normal;
+
+  @keyframes dropdown{
+    0%{
+      transform: translate(-50%, -150%);
+      opacity: 0;
+    }
+
+    100%{
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
 
 
   &__maintext{

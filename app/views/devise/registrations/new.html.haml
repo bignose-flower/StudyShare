@@ -14,7 +14,7 @@
         = render "/devise/shared/error_messages", {model: @user, attribute: :birth_date}
         .FormField
           .fas.fa-graduation-cap
-          = f.select :job, User.job_selects_i18n.keys.map{|k| [I18n.t("enum.job.job_select.#{k}"), k]}
+          = f.select :job, options_for_select(User.job_selects), {}
         = render "/devise/shared/error_messages", {model: @user, attribute: :job}
         .FormField
           .fas.fa-envelope
