@@ -20,5 +20,5 @@
           = f.label 'カテゴリー'
           %span (任意)
         .ChoiceBox
-          = f.select :category, @category_parent_array, {}
+          = f.select :subject, @category_parent_array, {}
         = f.submit "質問を投稿する", class: "QuestionSubmit"

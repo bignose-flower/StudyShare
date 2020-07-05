@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
 
-  validate :title, presence: true
-  validate :question, presence: true
+  validates :title, presence: true
+  validates :question, presence: true
 
   belongs_to :user
   belongs_to :subject
