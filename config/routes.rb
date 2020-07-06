@@ -22,7 +22,12 @@ Rails.application.routes.draw do
   root "questions#index"
   resources :questions, only: [:index]
   resources :users, only: [:show, :edit, :update] do
-    resources :questions, only: [:new, :create]
+    resources :questions, only: [:new, :create] do
+      collection do
+        get 'get_category_children', defaults: { format: 'json' }
+        get 'get_category_grandchildren', defaults: { format: 'json' }
+      end
+    end
   end
   
 

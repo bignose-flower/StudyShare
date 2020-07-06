@@ -72,7 +72,13 @@ margin-bottom: 50px;
     }
   }
 
-  & select{
+  &__category{
+    margin-bottom: 10px;
+  }
+}
+
+.ChoiceBox{
+  &__input{
     width: 200px;
     font-size: 18px;
     background-color: #e4ddd4;

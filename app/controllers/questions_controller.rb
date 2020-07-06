@@ -5,25 +5,33 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    @subject = Subject.new
-    @category_parent_array = ["---"]
-    Subject.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.category
-    end
+    @category_parent_array = Subject.where(ancestry: nil)
+  end
+
+  def get_preview
+    @question = Question.new(question_params)
+    render :new if @question.invalid?
   end
 
   def create
-    binding.pry
     @question = Question.new(question_params)
     if @question.save
-      recirect_to user_questions_path(currnet_user.id)
     else
       render :new
     end
   end
 
+  def get_category_children
+    @category_children = Subject.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Subject.find("#{params[:child_id]}").children
+  end
+
   private
   def question_params
-    params.require(:question).permit(:title, :question, :subject)
+    # subject_id = Subject.where(category: params[:subject_id])
+    params.require(:question).permit(:title, :question, :subject_id).merge(user_id: current_user.id)
   end
 end
