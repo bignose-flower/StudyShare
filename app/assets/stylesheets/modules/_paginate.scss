@@ -3,6 +3,8 @@
   text-decoration: none!important;
   margin-right: 20px;
   color: #696969;
+  font-size: 20px;
+  padding: 15px 15px;
 }
 
 .pagination>.active>a{
@@ -21,5 +23,6 @@
 }
 
 .PageBox{ 
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
