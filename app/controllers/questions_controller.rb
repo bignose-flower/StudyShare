@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @questions = Question.all.includes(:user)
+    @questions = Question.all.includes(:user).page(params[:page]).per(7)
   end
 
   def new

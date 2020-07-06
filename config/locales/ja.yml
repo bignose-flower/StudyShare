@@ -213,3 +213,8 @@ ja:
           "高校生": "高校生"
           "大学生": "大学生"
           "その他": "その他"
+  views:
+      :pagination:
+        previous: "&lsaquo; 前のページ"
+        next: "次のページ &rsaquo;"
+        truncate: "..."

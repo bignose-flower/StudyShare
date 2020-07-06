@@ -7,4 +7,10 @@
 @import "users/form";
 @import "users/error";
 @import "users/show";
-@import "modules/question_form"
+@import "modules/question_form";
+@import "modules/paginate";
+
+.wrapper{
+  width: 100%;
+  height: auto;
+}
