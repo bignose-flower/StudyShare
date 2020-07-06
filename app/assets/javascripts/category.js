@@ -9,7 +9,8 @@ $(document).on('turbolinks:load', function(){
   function appendChildrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<div class="QuestionCategory__category ChoiceBox children-wrapper">
-                        <select class="ChoiceBox__input" id="child-category" name="question[subject_id]">
+                        <select class="ChoiceBox__input" id="child-category" name="child_id">
+                         <option value>---</option>
                           ${insertHTML}
                         </select>
                       </div>`
@@ -19,7 +20,7 @@ $(document).on('turbolinks:load', function(){
   function appendGrandchildrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class="ChoiceBox grandchildren-wrapper">
-                              <select class="ChoiceBox__input" id="grandchild-category" name="question[subject_id]">
+                              <select class="ChoiceBox__input" id="grandchild-category" name="grandchild_id">
                                 ${insertHTML}
                               </select>
                             </div>`
@@ -28,7 +29,8 @@ $(document).on('turbolinks:load', function(){
 
   $('.ChoiceBox__input').on('change', function(){
     var parentCategory = $('.ChoiceBox__input').val();
-    if (parentCategory != "---"){
+    console.log(parentCategory)
+    if (parentCategory != 1){
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
@@ -55,7 +57,7 @@ $(document).on('turbolinks:load', function(){
   
   $('.QuestionCategory').on('change', '#child-category', function(){
     var childId = $('#child-category option:selected').data('category');
-    if (childId != "---"){
+    if (childId){
       $.ajax({
         url: 'get_category_grandchildren',
         type: 'GET',

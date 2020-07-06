@@ -1,16 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @questions = Question.all.includes(:user)
   end
 
   def new
     @question = Question.new
     @category_parent_array = Subject.where(ancestry: nil)
-  end
-
-  def get_preview
-    @question = Question.new(question_params)
-    render :new if @question.invalid?
   end
 
   def create
@@ -29,9 +25,18 @@ class QuestionsController < ApplicationController
     @category_grandchildren = Subject.find("#{params[:child_id]}").children
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
+
   private
   def question_params
-    # subject_id = Subject.where(category: params[:subject_id])
+    if params[:grandchild_id].present?
+      params[:question][:subject_id] = params[:grandchild_id]
+    elsif params[:child_id].present?
+      params[:question][:subject_id] = params[:child_id]  
+    else  
+    end
     params.require(:question).permit(:title, :question, :subject_id).merge(user_id: current_user.id)
   end
 end
