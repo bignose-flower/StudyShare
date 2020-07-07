@@ -1,5 +1,5 @@
 .Content
-  .ShowQuestion
+  .ShowQuestion.Wrapper
     %p.ShowQuestion__head Question
     .ShowQuestion__title
       = @question.title
@@ -8,9 +8,21 @@
     .ShowQuestion__category
       %span カテゴリー:
       .Showcategory= @question.subject.category
-  .AnswerForm
+  .AnswerForm.Wrapper
     %p.AnswerForm__head Send an Answer
-    .AnswerForm__textarea
-      %input.AnswerTextarea.AnswerForm__textarea_defaultnone{ placeholder: "Type a message", type: "textarea", cols: "30", rows: "10" }
-    .AnswerForm__submit
-      %input.Button.AnswerSend{ value: "Send", type: "submit" }
+    = form_with model: @answer, url: question_answers_path(@question.id), class: "AnswerForm__form" do |f|
+      .AnswerForm__textarea
+        = f.text_area :answer, { class: "AnswerTextarea AnswerForm__textarea_defaultnone", placeholder: "Type a message", cols: "70", rows: "10" }
+      .AnswerForm__submit
+        = f.submit "Send", { class:"Button AnswerSend" }
+  .AnswerLists.Wrapper
+    .AnswerLists__sum
+      %h3
+        %span 回答
+        %span.AnswerLists__sum_red= @answers.length
+        %span 件
+    - if @answers
+      - @answers.each do |answer|
+        .AnswerList
+          .AnswerList__answer
+            = answer.answer

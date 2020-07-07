@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
-    resources :answer, only: [:new, :create, :show, :destroy]
+    resources :answers, only: [:new, :create, :show, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
   
