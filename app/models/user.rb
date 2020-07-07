@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :job, presence: true
   validate :job_not_default
 
+  has_many :questions
+
   def job_not_default
     if job.present? && (job == "職業を選んでください")
       errors.add(:job, "を入力してください")

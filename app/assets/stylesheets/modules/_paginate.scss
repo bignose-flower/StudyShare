@@ -1,0 +1,28 @@
+.pagination>li>a{
+  border: none!important;
+  text-decoration: none!important;
+  margin-right: 20px;
+  color: #696969;
+  font-size: 20px;
+  padding: 15px 15px;
+}
+
+.pagination>.active>a{
+  background-color: #93c9ff;
+  border-radius: 15px;
+}
+
+.pagination>li>a:hover{
+  border-radius: 50%;
+  background-color: #93c9ff!important;
+  opacity: 0.6;
+}
+
+.pagination>li>a:last-child:hover, .pagination>li>a:first-child:hover{
+  border-radius: 15px 15px 15px 15px;
+}
+
+.PageBox{ 
+  display: flex;
+  justify-content: center;
+}

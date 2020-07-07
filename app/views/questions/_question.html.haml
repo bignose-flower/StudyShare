@@ -1,0 +1,23 @@
+- @questions.each do |question|
+  .QuestionBox
+    .UserIcon
+      = link_to user_path(question.user.id), class: "UserIcon__icon" do
+        - if(question.user.image.present?)
+          .UserIcon__icon_style
+            = image_tag question.user.image.url, class:"UserIcon__icon_style"
+        - else
+          %img.UserIcon__icon_style{src: "https://www.ipet-ins.com/wp-content/uploads/2019/03/%E7%8C%AB%E3%81%AE%E9%B3%B4%E3%81%8D%E5%A3%B0%E3%81%A8%E6%B0%97%E6%8C%81%E3%81%A1.jpg"}
+        %p.UserIcon__name
+          = question.user.name
+    .InfoBox
+      .InfoBox__title
+        = link_to question_path(question.id) do
+          = question.title
+      .SubInfoBox
+        %ul.SubInfoBox__tag
+          %li.Tag-item
+            = question.subject.category
+        .SubInfoBox__post-date
+          = "#{time_ago_in_words(question.subject.created_at)}前"
+.PageBox
+  = paginate @questions, remote: true

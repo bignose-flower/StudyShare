@@ -64,4 +64,6 @@ gem 'enum_help'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
+gem 'ancestry'
+gem 'kaminari'
 
