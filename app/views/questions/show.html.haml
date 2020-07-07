@@ -1,2 +1,16 @@
 .Content
-  
+  .ShowQuestion
+    %p.ShowQuestion__head Question
+    .ShowQuestion__title
+      = @question.title
+    .ShowQuestion__text.Showtext
+      = @question.question
+    .ShowQuestion__category
+      %span カテゴリー:
+      .Showcategory= @question.subject.category
+  .AnswerForm
+    %p.AnswerForm__head Send an Answer
+    .AnswerForm__textarea
+      %input.AnswerTextarea.AnswerForm__textarea_defaultnone{ placeholder: "Type a message", type: "textarea", cols: "30", rows: "10" }
+    .AnswerForm__submit
+      %input.Button.AnswerSend{ value: "Send", type: "submit" }
