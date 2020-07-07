@@ -92,3 +92,31 @@
 .AnswerTextarea{
   height: auto;
 }
+
+.AnswerLists{
+  &__sum{
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+
+    &_red{
+      color: #e3766b;
+    }
+  }
+}
+
+.AnswerList{
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 30px 0 30px 0;
+}
+
+.AnswerInfo{
+  display: flex;
+  justify-content: flex-end;
+
+  &__time{
+    margin-right: 20px;
+  }
+}
+

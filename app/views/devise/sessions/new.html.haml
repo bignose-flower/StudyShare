@@ -12,4 +12,5 @@
       .FormField
         .fas.fa-key
         = f.password_field :password, autocomplete: "off", placeholder: "password"
-      = f.submit "Log in", class: 'Button UserButton'
+      = f.submit "Log in", class: "Button Button_s"
+    = link_to "Sign Up", new_user_registration_path, class: "Button__signup"

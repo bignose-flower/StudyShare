@@ -8,13 +8,14 @@
     .ShowQuestion__category
       %span カテゴリー:
       .Showcategory= @question.subject.category
-  .AnswerForm.Wrapper
-    %p.AnswerForm__head Send an Answer
-    = form_with model: @answer, url: question_answers_path(@question.id), class: "AnswerForm__form" do |f|
-      .AnswerForm__textarea
-        = f.text_area :answer, { class: "AnswerTextarea AnswerForm__textarea_defaultnone", placeholder: "Type a message", cols: "70", rows: "10" }
-      .AnswerForm__submit
-        = f.submit "Send", { class:"Button AnswerSend" }
+  - if user_signed_in? && @question.user.id != current_user.id
+    .AnswerForm.Wrapper
+      %p.AnswerForm__head Send an Answer
+      = form_with model: @answer, url: question_answers_path(@question.id), class: "AnswerForm__form" do |f|
+        .AnswerForm__textarea
+          = f.text_area :answer, { class: "AnswerTextarea AnswerForm__textarea_defaultnone", placeholder: "Type a message", cols: "70", rows: "10" }
+        .AnswerForm__submit
+          = f.submit "Send", { class:"Button AnswerSend" }
   .AnswerLists.Wrapper
     .AnswerLists__sum
       %h3
@@ -26,3 +27,8 @@
         .AnswerList
           .AnswerList__answer
             = answer.answer
+            .AnswerInfo
+              .AnswerInfo__time
+                = "#{time_ago_in_words(answer.created_at)}前"
+              .AnswerInfo__user
+                = image_tag answer.user.image.url, class: "UserIcon__icon_style "

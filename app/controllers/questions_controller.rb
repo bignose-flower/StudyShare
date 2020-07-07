@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @questions = Question.all.includes(:user).page(params[:page]).per(7)
+    @questions = Question.all.order(created_at: "DESC").page(params[:page]).per(7)
     respond_to do |format|
       format.html
       format.js
