@@ -1,9 +1,6 @@
 $(function(){
   function buildHTML(answer){
-    let posttime = new Date(answer.created_at);
-    let diff = new Date().getTime() - posttime.getTime();
     let image = "";
-    console.log(answer.image);
     if (!answer.image){
         image = "/images/default.jpg"
     }else{
@@ -13,7 +10,7 @@ $(function(){
                   <div class="AnswerList__answer">
                     ${answer.answer}
                     <div class="AnswerInfo">
-                      <div class="AnswerInfo__time">${diff}分前</div>
+                      <div class="AnswerInfo__time">1分前</div>
                       <div class="AnswerInfo__user"><img class="UserIcon__icon_style" src="${image}"></div>
                     </div>
                   </div>
@@ -36,7 +33,7 @@ $(function(){
     .done(function(answer){
       $('.AnswerForm__form')[0].reset();
       let html = buildHTML(answer);
-      $('.AnswerLists__sum').after(html);
+      $('.AnswerLists__box').prepend(html);
     })
     .fail(function(){
       alert('送信に失敗しました。');

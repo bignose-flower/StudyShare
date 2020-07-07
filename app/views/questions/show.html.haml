@@ -1,14 +1,15 @@
-.Content
-  .ShowQuestion.Wrapper
-    %p.ShowQuestion__head Question
-    .ShowQuestion__title
-      = @question.title
-    .ShowQuestion__text.Showtext
-      = @question.question
-    .ShowQuestion__category
-      %span カテゴリー:
-      .Showcategory= @question.subject.category
-  - if user_signed_in? && @question.user.id != current_user.id
+.QandAwrapper
+  .QandAwrapper__topfield
+    .ShowQuestion.Wrapper
+      %p.ShowQuestion__head Question
+      .ShowQuestion__title
+        = @question.title
+      .ShowQuestion__text.Showtext
+        = @question.question
+      .ShowQuestion__category
+        %span カテゴリー:
+        .Showcategory= @question.subject.category
+  .QandAwrapper__bottom
     .AnswerForm.Wrapper
       %p.AnswerForm__head Send an Answer
       = form_with model: @answer, url: question_answers_path(@question.id), class: "AnswerForm__form" do |f|
@@ -16,19 +17,26 @@
           = f.text_area :answer, { class: "AnswerTextarea AnswerForm__textarea_defaultnone", placeholder: "Type a message", cols: "70", rows: "10" }
         .AnswerForm__submit
           = f.submit "Send", { class:"Button AnswerSend" }
-  .AnswerLists.Wrapper
-    .AnswerLists__sum
-      %h3
-        %span 回答
-        %span.AnswerLists__sum_red= @answers.length
-        %span 件
-    - if @answers
-      - @answers.each do |answer|
-        .AnswerList
-          .AnswerList__answer
-            = answer.answer
-            .AnswerInfo
-              .AnswerInfo__time
-                = "#{time_ago_in_words(answer.created_at)}前"
-              .AnswerInfo__user
-                = image_tag answer.user.image.url, class: "UserIcon__icon_style "
+    .AnswerLists.Wrapper
+      .AnswerLists__sum
+        %h3
+          %span 回答
+          %span.AnswerLists__sum_red= @answers.length
+          %span 件
+      .AnswerLists__box
+        - if @answers
+          - @answers.each do |answer|
+            .AnswerList
+              .AnswerList__answer
+                = answer.answer
+                .AnswerInfo
+                  - if answer.user.id == current_user.id
+                    .AnswerInfo__user
+                      = image_tag answer.user.image.url, class: "UserIcon__icon_style"
+                    .AnswerInfo__time
+                      = "#{time_ago_in_words(answer.created_at)}前"
+                  - else
+                    .AnswerInfo__time
+                      = "#{time_ago_in_words(answer.created_at)}前"
+                    .AnswerInfo__user
+                      = image_tag answer.user.image.url, class: "UserIcon__icon_style"
