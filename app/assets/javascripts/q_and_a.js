@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load', function() {
-  $(function(){
     function buildHTML(answer){
       let image = "";
       if (!answer.image){
@@ -32,6 +31,7 @@ $(document).on('turbolinks:load', function() {
       })
       .done(function(answer){
         $('.AnswerForm__form')[0].reset();
+        $('.AnswerSend').prop("disabled", false);
         let html = buildHTML(answer);
         $('.AnswerLists__box').prepend(html);
       })
@@ -48,5 +48,4 @@ $(document).on('turbolinks:load', function() {
     else{
       return false
     }
-  })
 });
