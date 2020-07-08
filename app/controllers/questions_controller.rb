@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :show]
   def index
-    @questions = Question.all.includes(:user).page(params[:page]).per(7)
+    @questions = Question.all.order(created_at: "DESC").page(params[:page]).per(7)
     respond_to do |format|
       format.html
       format.js
@@ -31,6 +31,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answer = Answer.new
+    @answers = @question.answers.order(created_at: "DESC")
   end
 
   private

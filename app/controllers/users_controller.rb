@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [:edit, :update, :show]
+  before_action :authenticate_user!, only: [:edit, :update]
 
   def edit
+    render :show unless current_user.id == @user.id
   end
 
   def update

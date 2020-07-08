@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validate :job_not_default
 
   has_many :questions
+  has_many :answers
 
   def job_not_default
     if job.present? && (job == "職業を選んでください")
