@@ -16,7 +16,19 @@
       .SubInfoBox
         %ul.SubInfoBox__tag
           %li.Tag-item
-            = question.subject.category
+            - if question.subject.has_parent?
+              - if question.subject.parent.has_parent?
+                = question.subject.parent.parent.category
+                %li.Tag-item
+                  = question.subject.parent.category
+                %li.Tag-item
+                  = question.subject.category
+              - else
+                = question.subject.parent.category
+                %li.Tag-item
+                  = question.subject.category
+            - else
+              = question.subject.category
         .SubInfoBox__post-date
           = "#{time_ago_in_words(question.subject.created_at)}前"
 .PageBox

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  
   devise_scope :user do
     get 'sign_in', to: "users/sessions#new"
   end
@@ -25,7 +25,9 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
-    resources :answers, only: [:new, :create, :show, :destroy]
+    resources :answers, only: [:new, :create, :show, :destroy] do
+      resources :likes, only: [:create, :destroy]
+    end
   end
   resources :users, only: [:show, :edit, :update]
   

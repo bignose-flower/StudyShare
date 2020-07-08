@@ -8,10 +8,26 @@
         = @question.question
       .ShowQuestion__category
         %span カテゴリー:
-        .Showcategory= @question.subject.category
+        .Showcategory
+          %ul.SubInfoBox__tag
+            %li.Tag-item
+              - if @question.subject.has_parent?
+                - if @question.subject.parent.has_parent?
+                  = @question.subject.parent.parent.category
+                  %li.Tag-item
+                    = @question.subject.parent.category
+                  %li.Tag-item
+                    = @question.subject.category
+                - else
+                  = @question.subject.parent.category
+                  %li.Tag-item
+                    = @question.subject.category
+              - else
+                = @question.subject.category
   .QandAwrapper__bottom
     .AnswerForm.Wrapper
       %p.AnswerForm__head Send an Answer
+      = render "/devise/shared/error_messages", {resource: @answer, attribute: :answer}
       = form_with model: @answer, url: question_answers_path(@question.id), class: "AnswerForm__form" do |f|
         .AnswerForm__textarea
           = f.text_area :answer, { class: "AnswerTextarea AnswerForm__textarea_defaultnone", placeholder: "Type a message", cols: "70", rows: "10" }
@@ -19,24 +35,15 @@
           = f.submit "Send", { class:"Button AnswerSend" }
     .AnswerLists.Wrapper
       .AnswerLists__sum
-        %h3
-          %span 回答
-          %span.AnswerLists__sum_red= @answers.length
-          %span 件
+        %h3 解答ルーム
       .AnswerLists__box
         - if @answers
           - @answers.each do |answer|
             .AnswerList
               .AnswerList__answer
                 = answer.answer
-                .AnswerInfo
-                  - if answer.user.id == current_user.id
-                    .AnswerInfo__user
-                      = image_tag answer.user.image.url, class: "UserIcon__icon_style"
-                    .AnswerInfo__time
-                      = "#{time_ago_in_words(answer.created_at)}前"
-                  - else
-                    .AnswerInfo__time
-                      = "#{time_ago_in_words(answer.created_at)}前"
-                    .AnswerInfo__user
-                      = image_tag answer.user.image.url, class: "UserIcon__icon_style"
+              .AnswerInfo
+                .AnswerInfo__time
+                  = "#{time_ago_in_words(answer.created_at)}前"
+                .AnswerInfo__user
+                  = image_tag answer.user.image.url, class: "UserIcon__icon_style"
