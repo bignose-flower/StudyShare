@@ -140,3 +140,26 @@
   }
 }
 
+#resolved{
+  float: right;
+}
+
+.resolvebutton{
+  padding: 10px 10px;
+  background-color: #e3766b;
+  color: #eee;
+  border-radius: 4px;
+
+  &:hover{
+    text-decoration: none;
+    color: #eee;
+    box-shadow: 0 0 4px 5px rgba(231, 160, 132, 0.794);
+  }
+}
+
+.solved{
+  padding: 10px;
+  background-color: #a3f7bf;
+  opacity: .5;
+  color: black;
+}

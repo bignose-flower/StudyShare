@@ -40,4 +40,13 @@ $(document).on('turbolinks:load', function() {
       })
     });
   });
+
+  
+  $("#Button").on('click', function(e){
+    if(window.confirm('一度「解決」にするとこれ以降解答を受付しません。本当に「解決」でよろしいですか？')){
+    }
+    else{
+      return false
+    }
+  })
 });

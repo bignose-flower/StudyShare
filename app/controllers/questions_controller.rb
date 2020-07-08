@@ -35,6 +35,17 @@ class QuestionsController < ApplicationController
     @answers = @question.answers.order(created_at: "DESC")
   end
 
+  def make_resolved
+    @question = Question.find(params[:id])
+    if @question.update(is_solved: true)
+      //
+    end
+    respond_to do |format|
+      format.html { render :show }
+      format.js
+    end
+  end
+
   private
   def question_params
     if params[:grandchild_id].present?
