@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: [:edit, :update]
+  before_action :get_user, only: [:edit, :update, :show]
+  before_action :authenticate_user!, only: [:edit, :update]
 
   def edit
+    render :show unless current_user.id == @user.id
   end
 
   def update
@@ -16,7 +18,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   private

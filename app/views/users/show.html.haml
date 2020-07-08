@@ -6,19 +6,20 @@
       .ShowAccount__leftfield
         .InfoField
           .fas.fa-user
-          %p.InfoField__list= current_user.name
+          %p.InfoField__list= @user.name
         .InfoField
           .fas.fa-envelope
-          %p.InfoField__list= current_user.email
+          %p.InfoField__list= @user.email
         .InfoField
           .fas.fa-graduation-cap
-          %p.InfoField__list= current_user.job
+          %p.InfoField__list= @user.job
         .InfoField
       .ShowAccount__rightfield
-        - if current_user.image?
+        - if @user.image?
           .ImageInfo
-            = image_tag current_user.image.url, class: "ImageInfo__image"
+            = image_tag @user.image.url, class: "ImageInfo__image"
         - else
           .ImageInfo
             = image_tag "/images/default.jpg", class: "ImageInfo__image"
-        = link_to "編集をする", edit_user_path(current_user.id), { class: "Button"}
+        - if user_signed_in? && @user.id == current_user.id
+          = link_to "編集をする", edit_user_path(@user.id), { class: "Button"}
