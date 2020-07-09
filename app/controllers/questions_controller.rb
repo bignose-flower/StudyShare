@@ -8,6 +8,11 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def search
+    @questions = Question.search(params[:keyword]).order(created_at: "DESC").page(params[:page]).per(7)
+    @keyword = params[:keyword]
+  end
+
   def new
     @question = Question.new
     @category_parent_array = Subject.where(ancestry: nil)
@@ -15,7 +20,11 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @users = User.all
     if @question.save
+      @users.each do |user|
+        NoticeMailer.posted_question(user, current_user, @question).deliver_now
+      end
     else
       render :new
     end
