@@ -6,4 +6,8 @@ class Question < ApplicationRecord
   belongs_to :user
   belongs_to :subject
   has_many :answers
+
+  def self.search(keyword)
+    Question.where('title LIKE ?', "%#{keyword}")
+  end
 end

@@ -9,14 +9,10 @@ $(document).on('turbolinks:load', function(){
   
     function readURL(input) {
       if (input.files && input.files[0]){
-        console.log(input.files);
         let reader = new FileReader();
   
   
         reader.onload = function(e){
-          console.log(e);
-          console.log(e.target);
-  
           let html = buildHTML(e.target.result);
           $('.ImageInfo').append(html);
         }

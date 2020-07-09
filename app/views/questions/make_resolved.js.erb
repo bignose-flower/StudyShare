@@ -1,2 +1,8 @@
 $("#resolved").children().remove();
+$(".AnswerForm").children().remove();
+let p = document.createElement("p");
+p.innerHTML = "Already Solved";
+p.classList.add("AnswerForm__head");
+$(".AnswerForm").append(p);
+
 $("#resolved").append('<%= escape_javascript render  :partial => "is_solved" ,locals: {question: @question},:layout => false %>');

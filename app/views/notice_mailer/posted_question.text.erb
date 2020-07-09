@@ -1,0 +1,16 @@
+----------------------------
+<%= @registered_user.name %>様
+----------------------------
+
+<%= @posted_user.name %>様より、新しい質問が投稿されました！
+タイトル :        <%= @question.title %>
+カテゴリー: <% if @question.subject.has_parent? %>
+            <% if @question.subject.parent.has_parent? %>
+              <%= @question.subject.parent.parent.category %> <%= @question.subject.parent.category %> <%= @question.subject.category %>
+            <% else %>%
+                <%= @question.subject.parent.category %> <%= @question.subject.category %>
+            <% end %>
+          <% else %>
+            <%= @question.subject.category %>
+          <% end %>
+質問の詳細はこちらから><%= @question_url %>
