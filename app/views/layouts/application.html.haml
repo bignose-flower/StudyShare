@@ -11,8 +11,9 @@
     = javascript_include_tag 'application'
     %link{href:"https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap", rel:"stylesheet"}
     %link{href: "https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Kosugi+Maru&display=swap",rel:"stylesheet"}
-  %body   
-    = render partial: 'modules/nav'
-    = yield
-    = render partial: 'modules/footer'
+  %body
+    #wrapper
+      = render partial: 'modules/nav'
+      = yield
+      = render partial: 'modules/footer'
 

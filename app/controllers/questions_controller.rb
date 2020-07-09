@@ -11,6 +11,11 @@ class QuestionsController < ApplicationController
   def search
     @questions = Question.search(params[:keyword]).order(created_at: "DESC").page(params[:page]).per(7)
     @keyword = params[:keyword]
+    if @keyword.empty?
+      redirect_to questions_path
+    else
+      //
+    end
   end
 
   def new

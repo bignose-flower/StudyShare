@@ -61,14 +61,21 @@
 }
 
 .Main{
+  height: 100%;
   background-color: white;
   display: flex;
   justify-content: center;
+  padding-bottom: 200px;
 }
 
 .QuestionBoxes{
   width: 1000px;
   margin-top: 50px;
+}
+
+.Dummy{
+  height: 800px;
+  float: right;
 }
 
 .QuestionBox{

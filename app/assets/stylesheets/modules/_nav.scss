@@ -2,12 +2,34 @@
   background-color: #F0C700;
 }
 
-.nav-font{
-  font-family: 'Kosugi Maru', sans-serif;
-}
-
 .EditIcon{
   border-radius: 50%;
   width: 25px;
   height: 25px;
+}
+
+.SearchBox{
+  &__form{
+    color: #333;
+    padding: 5px;
+    width: 300pxpx;
+    background-color: #e4ddd4;
+    border: none;
+    outline: none;
+    border: 0.5px solid rgba(0,0,0,0.4);
+  }
+
+  &__submit{
+    padding: 5px;
+    background-color: #e4ddd4;
+    border: none;
+    color: #333;
+    outline: none;
+    border: 0.5px solid rgba(0,0,0,0.4);
+
+    &:active{
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.4);;
+      outline: none;
+    }
+  }
 }
