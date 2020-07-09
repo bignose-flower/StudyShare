@@ -27,13 +27,17 @@
               - else
                 = @question.subject.category
   .QandAwrapper__bottom
-    .AnswerForm.Wrapper
-      %p.AnswerForm__head Send an Answer
-      = form_with model: @answer, url: question_answers_path(@question.id), class: "AnswerForm__form", local: true do |f|
-        .AnswerForm__textarea
-          = f.text_area :answer, { class: "AnswerTextarea AnswerForm__textarea_defaultnone", placeholder: "Type a message", cols: "70", rows: "10" }
-        .AnswerForm__submit
-          = f.submit "Send", { class:"Button AnswerSend" }
+    - if @question.is_solved?
+      .AnswerForm.Wrapper
+        %p.AnswerForm__head Already Solved
+    - else
+      .AnswerForm.Wrapper
+        %p.AnswerForm__head Send an Answer
+        = form_with model: @answer, url: question_answers_path(@question.id), class: "AnswerForm__form", local: true do |f|
+          .AnswerForm__textarea
+            = f.text_area :answer, { class: "AnswerTextarea AnswerForm__textarea_defaultnone", placeholder: "Type a message", cols: "70", rows: "10" }
+          .AnswerForm__submit
+            = f.submit "Send", { class:"Button AnswerSend" }
     .AnswerLists.Wrapper
       .AnswerLists__sum
         %h3 解答ルーム

@@ -1,7 +1,5 @@
 - @questions.each do |question|
   .QuestionBox
-    .AnswerCount
-      = "#{question.answers.count}件"
     .UserIcon
       = link_to user_path(question.user.id), class: "UserIcon__icon" do
         - if(question.user.image.present?)
@@ -12,13 +10,16 @@
         %p.UserIcon__name
           = question.user.name
     .InfoBox
-      .InfoBox__title
-        = link_to question_path(question.id) do
-          = question.title
-        - if question.is_solved?
-          %span 解決済
-        - else
-          %spna 受付中
+      .TitleStatus
+        .InfoBox__title
+          = link_to question_path(question.id) do
+            = question.title
+        .TitleStatus__astatus
+          %span.TitleStatus__acount= "回答数:#{question.answers.count}件"
+          - if question.is_solved?
+            %span.TitleStatus__solved 解決済
+          - else
+            %spna.TitleStatus__unsolved 受付中
       .SubInfoBox
         %ul.SubInfoBox__tag
           %li.Tag-item
