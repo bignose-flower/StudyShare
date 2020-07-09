@@ -1,0 +1,2 @@
+$("#resolved").children().remove();
+$("#resolved").append('<%= escape_javascript render  :partial => "is_solved" ,locals: {question: @question},:layout => false %>');

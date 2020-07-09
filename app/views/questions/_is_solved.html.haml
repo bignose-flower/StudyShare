@@ -1,0 +1,6 @@
+- if question.is_solved?
+  .solved
+    = "解決済み"
+- else
+  = link_to( '受付中',  make_resolved_questions_path(id: question.id), remote: true, class: "resolvebutton", id: "Button")
+ 

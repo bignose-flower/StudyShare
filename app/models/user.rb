@@ -11,11 +11,16 @@ class User < ApplicationRecord
 
   has_many :questions
   has_many :answers
+  has_many :likes, dependent: :destroy
 
   def job_not_default
     if job.present? && (job == "職業を選んでください")
       errors.add(:job, "を入力してください")
     end
+  end
+
+  def already_liked?(answer)
+    self.likes.exitst?(answer_id: answer.id)
   end
 
   enum job_select: {

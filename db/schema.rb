@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_032149) do
+ActiveRecord::Schema.define(version: 2020_07_08_080329) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "answer"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2020_07_07_032149) do
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "like"
+    t.bigint "user_id"
+    t.bigint "answer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["answer_id"], name: "index_likes_on_answer_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "question", null: false
@@ -29,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_032149) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_solved"
     t.index ["subject_id"], name: "index_questions_on_subject_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
@@ -60,6 +71,8 @@ ActiveRecord::Schema.define(version: 2020_07_07_032149) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
+  add_foreign_key "likes", "answers"
+  add_foreign_key "likes", "users"
   add_foreign_key "questions", "subjects"
   add_foreign_key "questions", "users"
 end

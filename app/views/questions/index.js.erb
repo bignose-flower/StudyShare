@@ -1,5 +1,1 @@
 $('.QuestionBoxes').html("<%= j(render :partial => 'question') %>");
-$('.pagination li a').on('click', function(){
-    console.log('fired');
-    $('html, body').animate({ scrollTop: $('.Header')[0].scrollHeight - 50});
-});

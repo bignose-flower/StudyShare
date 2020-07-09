@@ -10,13 +10,32 @@
         %p.UserIcon__name
           = question.user.name
     .InfoBox
-      .InfoBox__title
-        = link_to question_path(question.id) do
-          = question.title
+      .TitleStatus
+        .InfoBox__title
+          = link_to question_path(question.id) do
+            = question.title
+        .TitleStatus__astatus
+          %span.TitleStatus__acount= "回答数:#{question.answers.count}件"
+          - if question.is_solved?
+            %span.TitleStatus__solved 解決済
+          - else
+            %spna.TitleStatus__unsolved 受付中
       .SubInfoBox
         %ul.SubInfoBox__tag
           %li.Tag-item
-            = question.subject.category
+            - if question.subject.has_parent?
+              - if question.subject.parent.has_parent?
+                = question.subject.parent.parent.category
+                %li.Tag-item
+                  = question.subject.parent.category
+                %li.Tag-item
+                  = question.subject.category
+              - else
+                = question.subject.parent.category
+                %li.Tag-item
+                  = question.subject.category
+            - else
+              = question.subject.category
         .SubInfoBox__post-date
           = "#{time_ago_in_words(question.subject.created_at)}前"
 .PageBox

@@ -1,16 +1,18 @@
-.LoginPage
-  .AccountPage__title
-    %h2 Log in
-  .AccountPage__form
-    -if alert
-      #error_explanation
-        .error-box__message= alert
-    = form_with model: @user, url: user_session_path, local: true do |f|
-      .FormField
-        .fas.fa-envelope
-        = f.email_field :email, placeholder: "メールアドレス"
-      .FormField
-        .fas.fa-key
-        = f.password_field :password, autocomplete: "off", placeholder: "password"
-      = f.submit "Log in", class: "Button Button_s"
-    = link_to "Sign Up", new_user_registration_path, class: "Button__signup"
+.Content  
+  .LoginPage
+    .AccountPage__title
+      %h2 Log in
+    .AccountPage__form
+      -if alert
+        #error_explanation
+          .error-box__message= alert
+      = form_with model: @user, url: user_session_path, local: true do |f|
+        .FormField
+          .fas.fa-envelope
+          = f.email_field :email, placeholder: "メールアドレス"
+        .FormField
+          .fas.fa-key
+          = f.password_field :password, autocomplete: "off", placeholder: "password"
+        = f.submit "Log in", class: "Button"
+    .AccountPage__signup
+      = link_to "Sign Up", new_user_registration_path, class: "Button__signup"
