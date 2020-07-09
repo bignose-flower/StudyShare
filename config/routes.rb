@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'make_resolved'
+      get 'search'
     end
     resources :answers, only: [:new, :create, :show, :destroy] do
       resources :likes, only: [:create, :destroy]
