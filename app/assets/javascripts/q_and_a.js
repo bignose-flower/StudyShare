@@ -38,14 +38,14 @@ $(document).on('turbolinks:load', function() {
       .fail(function(){
         alert('空白のまま送信できません。');
       })
-    });
   });
 
   
-  $("#Button").on('click', function(e){
+  $("#resolved a").on('click', function(){
     if(window.confirm('一度「解決」にするとこれ以降解答を受付しません。本当に「解決」でよろしいですか？')){
+
+    }else{
+      return false;
     }
-    else{
-      return false
-    }
+  });
 });
