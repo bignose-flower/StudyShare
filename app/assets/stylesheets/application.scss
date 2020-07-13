@@ -1,4 +1,5 @@
 @import 'reset';
+@import 'global';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import "bootstrap"; 
@@ -11,6 +12,4 @@
 @import "modules/paginate";
 @import "modules/q_and_a";
 @import "modules/search";
-
-#wrapper{
-}
+@import "loader";

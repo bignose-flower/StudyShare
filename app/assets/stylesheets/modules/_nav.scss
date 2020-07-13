@@ -2,6 +2,13 @@
   background-color: #F0C700;
 }
 
+.borderthick{
+  &:hover{
+    background-color: rgba(211, 176, 1, 0.863);
+    transition: background-color .5s;
+  }
+}
+
 .EditIcon{
   border-radius: 50%;
   width: 25px;
