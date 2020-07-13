@@ -28,7 +28,9 @@ class QuestionsController < ApplicationController
     @users = User.all
     if @question.save
       @users.each do |user|
-        NoticeMailer.posted_question(user, current_user, @question).deliver_now
+        if user.notice && current_user.id != @question.user.id
+          NoticeMailer.posted_question(user, current_user, @question).deliver_now
+        end
       end
     else
       render :new
