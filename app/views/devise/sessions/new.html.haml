@@ -9,7 +9,7 @@
       = form_with model: @user, url: user_session_path, local: true do |f|
         .FormField
           .fas.fa-envelope
-          = f.email_field :email, placeholder: "メールアドレス"
+          = f.email_field :email, placeholder: "email"
         .FormField
           .fas.fa-key
           = f.password_field :password, autocomplete: "off", placeholder: "password"

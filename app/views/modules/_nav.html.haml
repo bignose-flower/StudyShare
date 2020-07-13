@@ -6,28 +6,27 @@
   %ul.navbar-nav.mr-auto
     - if user_signed_in?
       %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold.nav-font
-        = link_to "質問する", new_question_path(current_user.id), class: "nav-link text-white borderthick"
+        = link_to "Question", new_question_path(current_user.id), class: "nav-link text-white border-action"
     
   .navbar-nav.mr-auto
     - if user_signed_in?
       = form_with url: search_questions_path, method: :get, local: true do |f|
         .SearchBox
           = f.text_field :keyword, class: "SearchBox__form", placeholder: "keyword"
-          = f.submit "検索", class: "SearchBox__submit"
+          = f.submit "Search", class: "SearchBox__submit"
   %ul.navbar-nav
     - if (user_signed_in?)
       %li.nav-item.active.ml-3.font-weight-bold.nav-link.text-white
         = "#{current_user.name}さん,こんにちは！"
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
-        = link_to "編集", user_path(current_user.id), class: "nav-link text-white"
+        = link_to "Edit", user_path(current_user.id), class: "nav-link text-white border-action"
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
+        = link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link text-white border-action"
     
-    - elsif @signup
     - else
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
-        = link_to "サインイン", new_user_session_path, { class: "nav-link text-white"}
+        = link_to "Sign In", new_user_session_path, { class: "nav-link text-white border-action"}
 
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
-        = link_to "新規登録", new_user_registration_path, { class: "nav-link text-white"}
+        = link_to "Sign Up", new_user_registration_path, { class: "nav-link text-white border-action"}
    

@@ -1,7 +1,13 @@
+$basecolor: #87dfd6;
+$maincolor: #eee;
+$textcolor: #333;
+$inputcolor: #c8d9eb;
+
 .Content__wrapper{
   width: 1000px;
   height: 600px;
-  background-color: #ffd06b;
+  background-color: #fff;
+  border: 3px solid $basecolor;
   margin: 0 auto;
   transform: translateY(10%);
   border-radius: 4px;
@@ -19,6 +25,7 @@
   margin-bottom: 40px;
   border-bottom: 1px solid rgba(0,0,0,0.4);
   text-align: center;
+  color: $textcolor;
 
 }
 
@@ -59,6 +66,7 @@
     padding: 11px 10px;
     opacity: 0.6;
     border: none;
+    background-color: $inputcolor;
     border-bottom: 1px solid rgba(71, 69, 69, 0.411);
     margin-bottom: 50px;
   }
@@ -75,7 +83,7 @@
 .CheckBox{
   position: relative;
   & label{
-    background-color: white;
+    background-color: $inputcolor;
     margin-bottom: 0;
   }
 

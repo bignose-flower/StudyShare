@@ -14,6 +14,11 @@
           .fas.fa-graduation-cap
           %p.InfoField__list= @user.job
         .InfoField
+          .fas.fa-paper-plane
+          - if @user.notice
+            %p.InfoField__list= "Get Notice"
+          - else
+            %p.InfoField__list= "Not Get Notice"
       .ShowAccount__rightfield
         - if @user.image?
           .ImageInfo
@@ -22,4 +27,4 @@
           .ImageInfo
             = image_tag "/images/default.jpg", class: "ImageInfo__image"
         - if user_signed_in? && @user.id == current_user.id
-          = link_to "編集をする", edit_user_path(@user.id), { class: "Button"}
+          = link_to "Edit", edit_user_path(@user.id), { class: "Button"}
