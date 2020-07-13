@@ -17,26 +17,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  
-  animation: dropdown 1s ease 0s normal;
-
-  @keyframes dropdown{
-    0%{
-      transform: translate(-50%, -150%);
-      opacity: 0;
-    }
-
-    100%{
-      transform: translate(-50%, -50%);
-      opacity: 1;
-    }
-  }
-
 
   &__maintext{
     font-size: 120px;
     font-family: 'DM Mono', monospace;
   }
+  
   &__subtext{
     font-size: 30px;
     font-family: 'Kosugi Maru', sans-serif;
@@ -85,6 +71,15 @@
   border-left: 2px solid grey;
   padding: 0 10px;
   margin-bottom: 40px;
+
+  
+  &:hover{
+    // animation: cborder 1s ease 0 normal forwards;
+    border-right: 7px solid tomato;
+    border-left: 7px solid tomato;
+    transition: border-right .3s;
+    transition: border-left .3s;
+  }
 }
 
 .UserIcon{
@@ -117,7 +112,6 @@
     font-size: 20px;
     margin-bottom: 25px;
     & a{
-      text-decoration: none;
     }
   }
 }
