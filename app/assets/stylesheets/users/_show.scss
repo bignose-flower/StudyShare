@@ -72,6 +72,26 @@
   }
 }
 
+.CheckBox{
+  position: relative;
+  & label{
+    background-color: white;
+    margin-bottom: 0;
+  }
+
+  & input[type="checkbox"]{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 47px;
+    height: 47px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+}
+
 .ImageInfo{
   margin-bottom: 40px;
 

@@ -18,8 +18,9 @@
           = f.select :job, options_for_select(User.job_selects, selected: @user.job), {}, class: 'InfoField__list'
         .InfoField
           .fas.fa-paper-plane
-          = f.label "Get Notice"
-          = f.check_box :notice, class: "InfoField__list"
+          .CheckBox
+            = f.label "Get Notice", class: "InfoField__list"
+            = f.check_box :notice
       .ShowAccount__rightfield
         = f.label :image, class: 'ImageInfo' do
           - if @user.image?
