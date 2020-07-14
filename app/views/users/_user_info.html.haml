@@ -1,0 +1,25 @@
+.ShowAccount__leftfield
+  .InfoField
+    .fas.fa-user
+    %p.InfoField__list= user.name
+  .InfoField
+    .fas.fa-envelope
+    %p.InfoField__list= user.email
+  .InfoField
+    .fas.fa-graduation-cap
+    %p.InfoField__list= user.job
+  .InfoField
+    .fas.fa-paper-plane
+    - if user.notice
+      %p.InfoField__list= "Get Notice"
+    - else
+      %p.InfoField__list= "Not Get Notice"
+.ShowAccount__rightfield
+  - if @user.image?
+    .ImageInfo
+      = image_tag @user.image.url, class: "ImageInfo__image"
+  - else
+    .ImageInfo
+      = image_tag "/images/default.jpg", class: "ImageInfo__image"
+  - if user_signed_in? && @user.id == current_user.id
+    = link_to "Edit", edit_user_path(@user.id), { class: "Button"}

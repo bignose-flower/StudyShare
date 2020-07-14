@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_questions = Question.where(user_id: params[:id])
+    @user_answers = Answer.where(user_id: params[:id])
   end
 
   private
