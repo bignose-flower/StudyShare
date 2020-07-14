@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :birth_date, presence: true
   validates :job, presence: true
   validate :job_not_default
+  validates :password, length: { minimum: 8 }
 
   has_many :questions
   has_many :answers
