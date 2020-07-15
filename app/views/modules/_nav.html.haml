@@ -19,7 +19,7 @@
       %li.nav-item.active.ml-3.font-weight-bold.nav-link.text-white
         = "#{current_user.name}さん,こんにちは！"
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
-        = link_to "Edit", user_path(current_user.id), class: "nav-link text-white border-action"
+        = link_to "User", user_path(current_user.id), class: "nav-link text-white border-action"
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
         = link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link text-white border-action"
     
