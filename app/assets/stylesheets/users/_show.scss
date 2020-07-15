@@ -17,23 +17,9 @@ $inputcolor: #c8d9eb;
   
   &__bottom{
     max-width: 1000px;
-    background-color: $basecolor;
-    padding: 15px;
-    display: flex;
-    justify-content: space-around;
     margin: 100px auto;
     margin-bottom: 0;
-  }
-
-  &__questions, &__answers{
-    width: 200px;
-    position: relative;
-
-    &::after{
-      content: '\02228';
-      position: absolute;
-      right: 10px;
-    }
+    border-bottom: 3px solid $basecolor;
   }
 }
 
@@ -143,8 +129,53 @@ $inputcolor: #c8d9eb;
 }
 
 .User-Questions, .User-Answers{
-  display: block;
-  &_hidden{
+  max-width: 1000px;
+  border: 1px solid black;
+}
+
+.QandALists{
+  position: relative;
+  &__tab{
+    display: inline-block;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 0.75em 0.75em 0 0;
+    padding: 15px;
+    margin-bottom: 0;
+
+    &:hover{
+      background-color: #bbb;
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+  &__input{
     display: none;
   }
+  &__input:checked + &__tab{
+    background-color: $basecolor;
+  }
+
+  &__content{
+    display: none;
+    width: 100%;
+    padding: 1.2em;
+    background-color: #fff;
+    position: absolute;
+    margin-bottom: 100px;
+    border: 3px solid $basecolor;
+  }
+
+  &__item{
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+  }
+}
+
+#question-tab:checked ~ #question-content-tab{
+  display: block;
+}
+
+#answer-tab:checked ~ #answer-content-tab{
+  display: block;
 }
