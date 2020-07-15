@@ -4,14 +4,26 @@
       %h2 Account Information
     .ShowAccount
       = render partial: 'user_info', locals: { user: @user }
-  .Content__bottom
-    %p.Content__questions= "あなたの質問はこちら"
-    %ul.User-Questions_hidden
-      - @user_questions.each do |question|
-        %li.User-Questions__item
-          = link_to "#{question.title}", user_path(question.id), class: "User_Questions__link"
-    %p.Content__answers= "あなたの回答はこちら"
-    %ul.User-Answers_hidden
-      - @user_answers.each do |answer|
-        %li.User-Answers__item
-          = link_to "#{answer.question.title}", user_path(answer.question.id), class: "User_Answers__link"
+  .Content__bottom.QandALists
+    %input.QandALists__input{type: "radio", name:"tabset", id:"question-tab"}
+      %label.QandALists__tab{for: "question-tab"}= "あなたの質問はこちら ▼"
+    .QandALists__content#question-content-tab
+      %ul.QandALists__lists
+        - if@user_questions.present?
+          - @user_questions.each do |question|
+            %li.QandALists__item
+              = "title: "
+              = link_to "#{question.title}", user_path(question.id), class: "User_Questions__link"
+        - else
+          %p.QandALists_none= "#{current_user.name}様が投稿した質問はありません。"
+    %input.QandALists__input{type: "radio", name:"tabset", id:"answer-tab"}
+      %label.QandALists__tab{for: "answer-tab"}= "あなたの回答はこちら ▼"
+    .QandALists__content#answer-content-tab
+      %ul.QandALists__lists
+        - if @answer.present?
+          - @user_answers.each do |answer|
+            %li.QandALists__item
+              = "title: "
+              = link_to "#{answer.question.title}", user_path(answer.question.id), class: "User_Answers__link"
+        - else
+          %p.QandALists_none= "#{current_user.name}様が投稿した回答はありません。"
