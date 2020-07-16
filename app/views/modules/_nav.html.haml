@@ -1,14 +1,14 @@
 %nav.navbar.navbar-expand-lg.navbar-light.d-flex.navcolor.fixed-top
-  %a.navbar-brand.text-decoration-none.text-white{ href: "/" } 
+  %a.navbar-brand.text-decoration-none.text-white.deg-action{ href: "/" } 
     = icon('fas', 'school')
     &nbsp;StudyShare
   
   %ul.navbar-nav.mr-auto
     - if user_signed_in?
       %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold.nav-font
-        = link_to "Question", new_question_path(current_user.id), class: "nav-link text-white border-action"
+        = link_to "Question", new_question_path(current_user.id), class: "nav-link text-white deg-action"
     %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold.nav-font
-      = link_to "Category", subjects_path, class: "nav-link text-white border-action"
+      = link_to "Category", subjects_path, class: "nav-link text-white deg-action"
     
   .navbar-nav.mr-auto
     - if user_signed_in?
@@ -21,14 +21,14 @@
       %li.nav-item.active.ml-3.font-weight-bold.nav-link.text-white
         = "#{current_user.name}さん,こんにちは！"
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
-        = link_to "User", user_path(current_user.id), class: "nav-link text-white border-action"
+        = link_to "User", user_path(current_user.id), class: "nav-link text-white deg-action"
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
-        = link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link text-white border-action"
+        = link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link text-white deg-action"
     
     - else
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
-        = link_to "Sign In", new_user_session_path, { class: "nav-link text-white border-action"}
+        = link_to "Sign In", new_user_session_path, { class: "nav-link text-white deg-action"}
 
       %li.nav-item.active.border-right.border-left.ml-3.font-weight-bold
-        = link_to "Sign Up", new_user_registration_path, { class: "nav-link text-white border-action"}
+        = link_to "Sign Up", new_user_registration_path, { class: "nav-link text-white deg-action"}
    

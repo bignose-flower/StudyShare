@@ -7,6 +7,6 @@
           %p.SearchResult__finded= "検索条件: 「#{@keyword}」"
       - else
         .SearchResult
-          %p.SearchResult__notfinded= "#{@keyword} の検索結果はありませんでした。"
+          %p.SearchResult__notfinded= "#{@keyword} の質問は現在投稿されていません。"
       = render partial: 'questions/question'
     

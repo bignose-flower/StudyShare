@@ -1,5 +1,17 @@
 $basecolor: #87dfd6;
 $maincolor: #eee;
+@mixin bounce(){
+  animation: bounce 1s ease infinite alternate;
+
+    @keyframes bounce{
+      0%{
+        transform: translateY(0px);
+      }
+      100%{
+        transform: translateY(-20px);
+      }
+    }
+  }
 
 * {
   box-sizing: border-box;
@@ -24,6 +36,7 @@ $maincolor: #eee;
   &__maintext{
     font-size: 120px;
     font-family: 'DM Mono', monospace;
+    @include bounce;
   }
   
   &__subtext{
@@ -31,6 +44,8 @@ $maincolor: #eee;
     font-family: 'Kosugi Maru', sans-serif;
     letter-spacing: 5px;
     text-align: center;
+    position: relative;
+    @include bounce;
   }
 }
 
