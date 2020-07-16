@@ -7,6 +7,8 @@
       .CategoryTab__content{id: "category-content-#{index}"}
         %ul.CategoryTab__lists.Card
           - subject.values.flatten.each do |child|
-            %li.CategoryTabs__item.Card__list
-              = form_tag
-              = link_to "#{child}", search_category_subjects_url(cateogry: child), { class: "Card__link", data: { category: "#{child}" }}
+            %li.CategoryTabs__item
+              = form_with url: search_category_subjects_path, method: :get, local: true, class: "FormCard" do |f|
+                = f.hidden_field :category, value: child, class: "FormCard__hidden"
+                .FormCard__wrap
+                  = f.submit "#{child}", { class: "FormCard__link" }

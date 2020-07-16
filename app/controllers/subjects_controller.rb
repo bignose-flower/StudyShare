@@ -6,11 +6,10 @@ class SubjectsController < ApplicationController
   end
 
   def search_category
-    binding.pry
-    subjects = Subject.find_by(category: params[:category])
-    @questions = subjects.questions.order(created_at: "DESC").page(params[:page]).per(7)
+    subject = Subject.find_by(category: params[:category])
+    first_category_ids = subject.child_ids
+    @questions = Question.where(subject_id: first_category_ids).order(created_at: "DESC").page(params[:page]).per(7)
     @keyword = params[:category]
-    render template: 'questions/search'
   end
 
   private

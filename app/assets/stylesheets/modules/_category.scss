@@ -59,23 +59,41 @@
 
 .Card{
   &__list{
-    display: block;
-    width: 200px;
-    height: 200px;
-    background-color: $basecolor;
-    margin: 19px;
-    position: relative;
   }
+
+  &__hidden{
+    background-color: transparent;
+  }
+  &__link{
+  }
+}
+
+.FormCard{
+  width: 200px;
+  height: 200px;
+  margin: 19px;
+  position: relative;
+
   &__link{
     text-align: center;
     font-size: 30px;
     font-weight: 800;
+    width: 100%;
+    height: 100%;
+    background-color: $basecolor;
+    text-decoration: none;
+    border: none;
+    
+    &:hover{
+      background-color: #e6f8f9;
+    }
+  }
+  &__wrap{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    text-decoration: none;
 
     &::after{
       background-color: tomato;
@@ -91,9 +109,6 @@
     }
     &:hover::after{
       width: 100%;
-    }
-    &:hover{
-      background-color: #e6f8f9;
     }
   }
 }

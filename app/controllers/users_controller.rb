@@ -18,8 +18,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_questions = Question.where(user_id: params[:id])
-    @user_answers = Answer.where(user_id: params[:id])
+    @user_questions = Question.where(user_id: params[:id]).order(created_at: "DESC").page(params[:page]).per(15)
+    @user_answers = Answer.where(user_id: params[:id]).order(created_at: "DESC").page(params[:page]).per(15)
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
