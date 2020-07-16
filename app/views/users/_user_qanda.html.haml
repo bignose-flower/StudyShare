@@ -9,8 +9,6 @@
           = link_to "#{question.title}", question_path(question.id), class: "User_Questions__link"
     - else
       %p.QandALists_none= "#{current_user.name}様が投稿した質問はありません。"
-  .PageBox
-    = paginate user_questions, remote: true
 %input.QandALists__input{type: "radio", name:"tabset", id:"answer-tab"}
   %label.QandALists__tab{for: "answer-tab"}= "Answers ▼"
 .QandALists__content#answer-content-tab
