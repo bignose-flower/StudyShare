@@ -1,0 +1,14 @@
+.Content
+  %h2.Content__header Categories
+  .Content__bottom.CategoryTab
+    - @subjects.each_with_index do |subject, index|
+      %input.CategoryTab__input{type: "radio", name:"tabset", id:"category-#{index}"}
+        %label.CategoryTab__tab{for: "category-#{index}"}= "#{subject.key(subject.values.flatten)} ▼"
+      .CategoryTab__content{id: "category-content-#{index}"}
+        %ul.CategoryTab__lists.Card
+          - subject.values.flatten.each do |child|
+            %li.CategoryTabs__item
+              = form_with url: search_category_subjects_path, method: :get, local: true, class: "FormCard" do |f|
+                = f.hidden_field :category, value: child, class: "FormCard__hidden"
+                .FormCard__wrap
+                  = f.submit "#{child}", { class: "FormCard__link" }

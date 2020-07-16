@@ -31,6 +31,11 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show, :edit, :update]
+  resources :subjects, only: [:index] do
+    collection do
+      get 'search_category'
+    end
+  end
   
 
   if Rails.env.development?

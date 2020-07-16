@@ -1,0 +1,12 @@
+.searchwrapper
+  .Main
+    .QuestionBoxes
+      .Dummy
+      - if @questions.count > 0
+        .SearchResult
+          %p.SearchResult__finded= "検索条件: 「#{@keyword}」"
+      - else
+        .SearchResult
+          %p.SearchResult__notfinded= "#{@keyword} の検索結果はありませんでした。"
+      = render partial: 'questions/question'
+    

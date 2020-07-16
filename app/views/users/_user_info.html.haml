@@ -3,8 +3,9 @@
     .fas.fa-user
     %p.InfoField__list= user.name
   .InfoField
-    .fas.fa-envelope
-    %p.InfoField__list= user.email
+    - if user_signed_in? && current_user.id == user.id
+      .fas.fa-envelope
+      %p.InfoField__list= user.email
   .InfoField
     .fas.fa-graduation-cap
     %p.InfoField__list= user.job

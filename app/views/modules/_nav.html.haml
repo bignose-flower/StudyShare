@@ -7,6 +7,8 @@
     - if user_signed_in?
       %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold.nav-font
         = link_to "Question", new_question_path(current_user.id), class: "nav-link text-white border-action"
+    %li.nav-item.active.border-right.border-left.ml-5.font-weight-bold.nav-font
+      = link_to "Category", subjects_path, class: "nav-link text-white border-action"
     
   .navbar-nav.mr-auto
     - if user_signed_in?
