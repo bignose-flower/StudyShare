@@ -6,6 +6,7 @@
           = f.label 'タイトル'
           %span (必須)
         = f.text_field :title, autofocus: true
+      = render "/devise/shared/error_messages", {resource: @question, attribute: :title}
       .QuestionText
         .QuestionText__label
           = f.label '本文'
@@ -15,10 +16,12 @@
           %span= icon('fas', 'bold')
           %span= icon('fas', 'link')
         = f.text_area :question, rows: 15
+      = render "/devise/shared/error_messages", {resource: @question, attribute: :question}
       .QuestionCategory
         .QuestionCategory__label
           = f.label 'カテゴリー'
           %span (任意)
         .QuestionCategory__category.ChoiceBox
           = f.collection_select :subject_id, @category_parent_array, :id, :category, {}, {class: "ChoiceBox__input"}
+        = render "/devise/shared/error_messages", {resource: @question, attribute: :subject_id}
         = f.submit "質問を投稿する", class: "QuestionSubmit"
