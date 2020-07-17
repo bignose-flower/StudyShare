@@ -33,6 +33,7 @@ class QuestionsController < ApplicationController
         end
       end
     else
+      @category_parent_array = Subject.where(ancestry: nil)
       render :new
     end
   end
