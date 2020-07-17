@@ -54,3 +54,4 @@ production:
   database: StudyShare_production
   username: StudyShare
   password: <%= ENV['STUDYSHARE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
