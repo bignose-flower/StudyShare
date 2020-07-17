@@ -1,10 +1,10 @@
 - if answers
   - answers.each do |answer|
     .AnswerList
-      .AnswerList__answer
-        = answer.answer
       .AnswerInfo
         .AnswerInfo__time
           = "#{time_ago_in_words(answer.created_at)}前"
         .AnswerInfo__user
           = image_tag answer.user.image.url, class: "UserIcon__icon_style"
+      .AnswerList__answer
+        = answer.answer
