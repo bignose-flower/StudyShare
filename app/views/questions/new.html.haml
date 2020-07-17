@@ -23,5 +23,5 @@
           %span (任意)
         .QuestionCategory__category.ChoiceBox
           = f.collection_select :subject_id, @category_parent_array, :id, :category, {}, {class: "ChoiceBox__input"}
-        = render "/devise/shared/error_messages", {resource: @question, attribute: :subject_id}
+      = render "/devise/shared/error_messages", {resource: @question, attribute: :subject_id}
         = f.submit "質問を投稿する", class: "QuestionSubmit"

@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', function(){
   $('.ChoiceBox__input').on('change', function(){
     var parentCategory = $('.ChoiceBox__input').val();
     console.log(parentCategory)
-    if (parentCategory != 1){
+    if (parentCategory != 0){
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
