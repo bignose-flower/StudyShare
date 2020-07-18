@@ -9,7 +9,8 @@ $(document).on('turbolinks:load', function() {
       let html = `<div class="AnswerList">
                     <div class="AnswerInfo">
                       <div class="AnswerInfo__time">1分前</div>
-                      <div class="AnswerInfo__user"><img class="UserIcon__icon_style" src="${image}"></div>
+                      <div class="AnswerInfo__username">${answer.user_name}</div>
+                      <div class="AnswerInfo__user"><img class="UserIcon__icon_style small_pic" src="${image}"></div>
                     </div>
                     <div class="AnswerList__answer">
                       ${answer.answer}
