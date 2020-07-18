@@ -58,3 +58,15 @@
     }
   }
 }
+@media screen and (max-width:500px){
+  .SearchResult{
+    
+    &__finded{
+      font-size: 16px;
+    }
+  
+    &__notfinded{
+      font-size: 16px;
+    }
+  }
+}
