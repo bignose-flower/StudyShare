@@ -3,6 +3,7 @@ $maincolor: #eee;
 $textcolor: #333;
 $inputcolor: #c8d9eb;
 
+// ユーザー情報と編集
 .Content{
   &__wrapper{
   width: 1000px;
@@ -41,9 +42,6 @@ $inputcolor: #c8d9eb;
   display: flex;
   justify-content: space-around;
 
-  &__leftfield{
-  }
-
   &__rightfield{
     text-align: center;
 
@@ -71,7 +69,8 @@ $inputcolor: #c8d9eb;
 
   &__list{
     width: 300px;
-    padding: 11px 10px;
+    padding: 16px 10px;
+    font-size: 0.6em;
     opacity: 0.6;
     border: none;
     background-color: $inputcolor;
@@ -133,6 +132,8 @@ $inputcolor: #c8d9eb;
   border: 1px solid black;
 }
 
+//ユーザー情報、質問、解答一覧
+
 .QandALists{
   position: relative;
   &__tab{
@@ -178,4 +179,55 @@ $inputcolor: #c8d9eb;
 
 #answer-tab:checked ~ #answer-content-tab{
   display: block;
+}
+
+@media screen and (max-width: 500px){
+  .Content{
+    width: 400px;
+    &__wrapper{
+      width: 100%;
+      padding: 15px;
+      height: auto;
+    }
+  }
+  .Title{
+    width: 300px;
+    text-align: center;
+    & h2{
+    font-size: 20px;
+    }
+  }
+  .ShowAccount{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__submit{
+      width: 200px;
+    }
+  }
+
+  .InfoField{
+    margin: 0 auto;
+    &__list{
+      width: 200px;
+    }
+  }
+  .ImageInfo{
+    &__image{
+      width: 200px;
+      height: 200px;
+    }
+  }
+  .mg-t{
+    margin-top: 50px;
+  }
+  .ShowAccount{
+    &__submit{
+    width: 248px;
+    }
+  }
+  .block{
+    width: 248px;
+  }
 }

@@ -76,10 +76,6 @@ margin-bottom: 50px;
       vertical-align: bottom;
     }
   }
-
-  &__category{
-    margin-bottom: 10px;
-  }
 }
 
 .ChoiceBox{
@@ -91,6 +87,7 @@ margin-bottom: 50px;
     border-radius: 5px;
     border: none;
     outline: none;
+    margin-bottom: 10px;
   }
 }
 
@@ -101,12 +98,39 @@ margin-bottom: 50px;
   background-color: $inputcolor;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 4px 0 0px rgba(0, 0, 0, 0.4);
   text-decoration: none;
   outline: none;
 
+  &:hover{
+    transform: scale(1.2);
+    transition: transform 1s;
+  }
+
   &:active{
-    box-shadow: none;
-    margin-top: 4px;
+    box-shadow: 0 0 4px 3px #ccc inset;
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 500px){
+  .QuestionCategory{
+    width: 100%;
+    &__label{
+      width: 100%;
+    }
+  }
+  .ChoiceBox{
+    &__input{
+      width: 100%;
+    }
+  }
+  .QuestionSubmit{
+    margin-top: 30px;
+    float: none;
+    width: 100%;
+
+    &:active{
+      transform: scale(1);
+    }
   }
 }

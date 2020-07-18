@@ -23,4 +23,4 @@
     .ImageInfo
       = image_tag "/images/default.jpg", class: "ImageInfo__image"
   - if user_signed_in? && @user.id == current_user.id
-    = link_to "Edit", edit_user_path(@user.id), { class: "Button"}
+    = link_to "Edit", edit_user_path(@user.id), { class: "Button ShowAccount__submit"}
