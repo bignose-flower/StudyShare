@@ -103,3 +103,45 @@ $inputcolor: #c8d9eb;
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.4);
   }
 }
+
+@media screen and (max-width:500px){
+  .AccountPage{
+    width: 100%;
+    &__title{
+      width: 250px;
+      text-align: center;
+    }
+    &__form{
+      width: 100%;
+      text-align: center;
+    }
+    &__signup{
+      text-align: center;
+    }
+  }
+  .FormField{
+    width: 250px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+  }
+  .UserButton{
+    width: 250px;
+  }
+
+  .LoginPage{
+    width: 100%;
+    &__title{
+      width: 250px;
+    }
+  }
+  .Button{
+    &__login, &__signup{
+      width: 250px;
+    }
+    &__signup{
+      display: inline-block;
+      float: none;
+    }
+  }
+}

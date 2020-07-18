@@ -13,6 +13,6 @@
         .FormField
           .fas.fa-key
           = f.password_field :password, autocomplete: "off", placeholder: "password"
-        = f.submit "Log in", class: "Button"
-    .AccountPage__signup
-      = link_to "Sign Up", new_user_registration_path, class: "Button__signup"
+        = f.submit "Log in", class: "Button Button__login"
+      .AccountPage__signup
+        = link_to "Sign Up", new_user_registration_path, class: "Button__signup"

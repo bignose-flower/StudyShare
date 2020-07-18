@@ -221,4 +221,18 @@ $maincolor: #eee;
      margin-right: 2px;
    }
   }
+  .AccountButton{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    &__signin, &__login{
+      width: 100%;
+      margin: 0;
+    }
+    &__signin{
+      margin-bottom: 40px;
+    }
+  }
 }
