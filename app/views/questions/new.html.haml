@@ -21,6 +21,6 @@
         .QuestionCategory__label
           = f.label 'カテゴリー'
           %span (任意)
-        .QuestionCategory__category.ChoiceBox
+        .QuestionCategory__category.ChoiceBox.Questionwrapper
           = f.collection_select :subject_id, @category_parent_array, :id, :category, {}, {class: "ChoiceBox__input"}
         = f.submit "質問を投稿する", class: "QuestionSubmit"

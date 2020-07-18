@@ -1,3 +1,9 @@
+.SearchCenter
+  - if user_signed_in?
+    = form_with url: search_questions_path, method: :get, local: true do |f|
+      .SearchBox
+        = f.text_field :keyword, class: "SearchBox__form", placeholder: "keyword"
+        = f.submit "Search", class: "SearchBox__submit"
 .Main
   .QuestionBoxes
     = render partial: 'question'

@@ -57,17 +57,6 @@
   }
 }
 
-.Card{
-  &__list{
-  }
-
-  &__hidden{
-    background-color: transparent;
-  }
-  &__link{
-  }
-}
-
 .FormCard{
   width: 200px;
   height: 200px;
@@ -127,4 +116,31 @@
 }
 #category-4:checked ~ #category-content-4{
   display: block;
+}
+
+@media screen and (max-width:500px){
+  .Content{
+    &__header{
+      width: 100%;
+      font-size: 30px;
+    }
+  }
+  .CategoryTab{
+    &__tab{
+      margin: 0 2px 0 0;
+      padding: 5px;
+    }
+    &__lists{
+      justify-content: center;
+    }
+  }
+  .FormCard{
+    height: 50px;
+    width: 250px;
+
+    &__link{
+      font-size: 14px;
+      border-radius: 8px;
+    }
+  }
 }

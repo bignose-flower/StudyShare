@@ -26,3 +26,23 @@
   display: flex;
   justify-content: center;
 }
+
+.gap{
+  display: none;
+}
+
+@media screen and (max-width:500px){
+  .pagination > li{
+    width: 30px;
+  }
+  .pagination > li > a{
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+  .prev_page{
+    display: none;
+  }
+  .next_page{
+    display: none;
+  }
+}

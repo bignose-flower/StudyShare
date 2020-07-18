@@ -4,7 +4,7 @@
       .Dummy
       - if @questions.count > 0
         .SearchResult
-          %p.SearchResult__finded= "検索条件: 「#{@keyword}」"
+          %p.SearchResult__finded= "カテゴリー: 「#{@keyword}」"
       - else
         .SearchResult
           %p.SearchResult__notfinded= "#{@keyword} の質問は現在投稿されていません。"

@@ -5,7 +5,7 @@
   .AccountButton
     - if (user_signed_in?)
     - else
-      = link_to "新規登録", new_user_registration_path, { class: "btn btn-info Button__signin"}
+      = link_to "新規登録", new_user_registration_path, { class: "btn btn-info AccountButton__signin"}
         
       
       = link_to "サインイン", new_user_session_path, { class: "btn btn-info AccountButton__login"}

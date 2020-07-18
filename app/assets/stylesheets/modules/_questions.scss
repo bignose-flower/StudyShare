@@ -26,6 +26,7 @@ $maincolor: #eee;
   position: relative;
 }
 
+
 .TitleBox{
   position: absolute;
   top: 50%;
@@ -46,6 +47,23 @@ $maincolor: #eee;
     text-align: center;
     position: relative;
     @include bounce;
+  }
+}
+
+@media screen and (max-width:500px){
+  *{
+    font-size: 0.7em;
+  }
+  .TitleBox{
+    &__maintext{
+      font-size: 45px;
+    }
+    &__subtext{
+      font-size: 15px;
+    }
+  }
+  .Main{
+    padding: 15px;
   }
 }
 
@@ -92,7 +110,6 @@ $maincolor: #eee;
 
   
   &:hover{
-    // animation: cborder 1s ease 0 normal forwards;
     border-right: 7px solid tomato;
     border-left: 7px solid tomato;
     transition: border-right .3s;
@@ -190,5 +207,32 @@ $maincolor: #eee;
     line-height: 100px;
     color: white;
     text-align: center;
+  }
+}
+
+@media screen and (max-width:500px){
+  .TitleStatus{
+    &__acount, &__solved, &__unsolved{
+      font-size: 0.6em;
+      padding: 0;
+      color: #fff;
+   }
+   &__acount{
+     margin-right: 2px;
+   }
+  }
+  .AccountButton{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    &__signin, &__login{
+      width: 100%;
+      margin: 0;
+    }
+    &__signin{
+      margin-bottom: 40px;
+    }
   }
 }

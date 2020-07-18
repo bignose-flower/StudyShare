@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function(){
                           ${insertHTML}
                         </select>
                       </div>`
-    $('.QuestionCategory').append(childSelectHtml);
+    $(".Questionwrapper").append(childSelectHtml);
   }
 
   function appendGrandchildrenBox(insertHTML){
@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function(){
                                 ${insertHTML}
                               </select>
                             </div>`
-    $('.QuestionCategory').append(grandchildSelectHtml);
+    $(".Questionwrapper").append(grandchildSelectHtml);
   }
 
   $('.ChoiceBox__input').on('change', function(){
