@@ -102,7 +102,19 @@ $ rails s
 
 # Usage
 
+###　質問をする
+<a href="https://gyazo.com/957fe138b4a4d3c653e0001779775ff1"><img src="https://i.gyazo.com/957fe138b4a4d3c653e0001779775ff1.gif" alt="Image from Gyazo" width="1000"/></a>
 
+### 答える
+<a href="https://gyazo.com/eb08f04750b689c36e629eb452dfb035"><img src="https://i.gyazo.com/eb08f04750b689c36e629eb452dfb035.gif" alt="Image from Gyazo" width="1000"/></a>
+
+###　カテゴリーから検索
+<a href="https://gyazo.com/6bdd83f1f57e62d2077b639c7ae88288"><img src="https://i.gyazo.com/6bdd83f1f57e62d2077b639c7ae88288.gif" alt="Image from Gyazo" width="1000"/></a>
+
+# update
+- お気に入りの質問内容や今後の学習に活かせる質問を一つにまとめる「ノート」機能を作成
+- カテゴリー検索を孫階層にまで至って検索可能
+- 質問内容入力時にテキストのプレビューができるようにする。ハイライトなどの文字を装飾できる機能を実装する。
 
 # Author
 
