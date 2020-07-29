@@ -111,13 +111,13 @@ $ rails s
 
 # Usage
 
-###　質問をする
+### 質問をする
 <a href="https://gyazo.com/957fe138b4a4d3c653e0001779775ff1"><img src="https://i.gyazo.com/957fe138b4a4d3c653e0001779775ff1.gif" alt="Image from Gyazo" width="1000"/></a>
 
 ### 答える
 <a href="https://gyazo.com/eb08f04750b689c36e629eb452dfb035"><img src="https://i.gyazo.com/eb08f04750b689c36e629eb452dfb035.gif" alt="Image from Gyazo" width="1000"/></a>
 
-###　カテゴリーから検索
+### カテゴリーから検索
 <a href="https://gyazo.com/6bdd83f1f57e62d2077b639c7ae88288"><img src="https://i.gyazo.com/6bdd83f1f57e62d2077b639c7ae88288.gif" alt="Image from Gyazo" width="1000"/></a>
 
 # update
