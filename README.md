@@ -112,7 +112,7 @@ $ rails s
 # Usage
 
 ### 質問をする
-<a href="https://gyazo.com/957fe138b4a4d3c653e0001779775ff1"><img src="https://i.gyazo.com/957fe138b4a4d3c653e0001779775ff1.gif" alt="Image from Gyazo" width="1000"/></a>
+<a href="https://gyazo.com/239bac16d7dd27b9eb8e8a32cef82f7d"><img src="https://i.gyazo.com/239bac16d7dd27b9eb8e8a32cef82f7d.gif" alt="Image from Gyazo" width="1000"/></a>
 
 ### 答える
 <a href="https://gyazo.com/eb08f04750b689c36e629eb452dfb035"><img src="https://i.gyazo.com/eb08f04750b689c36e629eb452dfb035.gif" alt="Image from Gyazo" width="1000"/></a>
