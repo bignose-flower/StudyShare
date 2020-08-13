@@ -3,7 +3,7 @@ class NoticeMailer < ApplicationMailer
     @registered_user = registered_user
     @posted_user = posted_user
     @question = question
-    @question_url = "http://localhost:3000/questions/#{question.id}"
+    @question_url = "http://studyshareapp.herokuapp.com/questions/#{question.id}"
     
     mail(
       to: @registered_user.email,
@@ -15,7 +15,7 @@ class NoticeMailer < ApplicationMailer
     @answer_author = answer_author
     @question_author = question.user
     @question = question
-    @question_url = "http://localhost:3000/questions/#{question.id}"
+    @question_url = "http://studyshareapp.herokuapp.com/questions/#{question.id}"
     @answer = answer
     
     mail(
