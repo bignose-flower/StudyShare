@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     if @answer.save
       if current_user.id != question.user.id && question.user.notice
-        NoticeMailer.get_answer(current_user, question, @answer).deliver_now
+        NoticeMailer.get_answer(current_user, question, @answer).deliver
       end
       respond_to do |format|
         format.json
