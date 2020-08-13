@@ -1,4 +1,5 @@
 class NoticeMailer < ApplicationMailer
+  default from: 'testmailer118835@gmail.com'
   def posted_question(registered_user, posted_user, question)
     @registered_user = registered_user
     @posted_user = posted_user
