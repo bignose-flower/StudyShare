@@ -6,7 +6,6 @@ class NoticeMailer < ApplicationMailer
     @question_url = "http://localhost:3000/questions/#{question.id}"
     
     mail(
-      from: 'system@example.com',
       to: @registered_user.email,
       subject: '新しい質問が投稿されました！'
       )
@@ -20,7 +19,6 @@ class NoticeMailer < ApplicationMailer
     @answer = answer
     
     mail(
-      from: 'system@example.com',
       to: @question_author.email,
       subject: '質問の回答が投稿されました！'
     )
