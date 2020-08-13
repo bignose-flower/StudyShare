@@ -1,10 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 # Name
 
 StudyShare
@@ -34,6 +29,8 @@ StudyShare
 *rails 6.0.0
 *ruby 3.5.4
 *jquery-rails 4.4.0
+*postgres
+*heroku
 
 # Installation
 ```command line
@@ -43,6 +40,7 @@ $ bundle install
 $ yarn install
 $ rails db:create
 $ rails db:migrate
+$ rails db:seed
 $ rails s
 ```
 👉 http://localhost:3000
