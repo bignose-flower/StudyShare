@@ -60,7 +60,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "StudyShare_production"
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_caching = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.deliver_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -70,7 +70,7 @@ Rails.application.configure do
     user_name: Rails.application.credentials.user_name,
     password: Rails.application.credentials.password,
     authentication: 'login',
-  enable_starttls_auto: true
+    enable_starttls_auto: true
   }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
